@@ -1,3 +1,4 @@
+import { MdFirstPage } from 'react-icons/md'
 import './index.css'
 
 export function Capa() {
@@ -5,6 +6,7 @@ export function Capa() {
 
   return(
     <div data-capa>
+      <MdFirstPage />
       <h1>{titulo}</h1>
       <h2>Lojinha virtual</h2>
     </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { Capa } from './components/Capa';
 import { Produtos } from './components/Produtos';
+import { MdSearch } from 'react-icons/md'
 
 class App extends React.Component {
   constructor() {
@@ -23,6 +24,8 @@ class App extends React.Component {
     return (
       <>
         <Capa />
+        <Pesquisa />
+        {10*5}
 
         {/* <strong>{this.lapis.nome}</strong>
         <p>{this.lapis.preco}</p> */}
@@ -30,6 +33,20 @@ class App extends React.Component {
         <Produtos />
       </>
   )}
+}
+
+function Pesquisa() {
+  return (
+    <div>
+      <form>
+        <label htmlFor='search'></label>
+        <input id='search' />
+        <button>
+          <MdSearch />
+        </button>
+      </form>
+    </div>
+  )
 }
 
 // function App() {
