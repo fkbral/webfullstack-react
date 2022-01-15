@@ -31,7 +31,7 @@ export function ImageFeed() {
       {
         images.map((image) => 
         <li key={image.id}>
-          <img src={image.url} alt="" width={180} />
+          <img src={image.url} alt="Imagem aleatória" width={180} />
         </li>
         )
       }

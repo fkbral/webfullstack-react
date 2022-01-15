@@ -1,0 +1,43 @@
+.menu {
+  padding: 0 10px;
+  background-color: cornflowerblue;
+  color: #fff;
+  height: 100px;
+
+  display: flex;
+  align-items: center;
+}
+
+.menu nav {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+}
+
+.menu figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.menu figure img {
+  height: 60px;
+  width: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.menu figure figcaption {
+  font-weight: 600;
+}

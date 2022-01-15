@@ -1,0 +1,15 @@
+.texto-xs {
+  font-size: 10px;
+}
+
+.texto-md {
+  font-size: 16px;
+}
+
+.texto-lg {
+  font-size: 24px;
+}
+
+.texto-xl {
+  font-size: 72px;
+}
