@@ -15,8 +15,6 @@
 }
 
 .image-feed li {
-  flex-basis: calc(33.33% - 18 * 2px);
-
   display: flex;
   justify-content: center;
   align-items: center;

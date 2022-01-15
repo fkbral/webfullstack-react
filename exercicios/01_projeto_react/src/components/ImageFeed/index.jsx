@@ -1,6 +1,6 @@
 import './styles.css'
 
-export function ImageFeed() {
+export function ImageFeed({columnCount=2}) {
   const defaultImgUrl = "https://source.unsplash.com/random/?city,night"
 
   // const images = [
@@ -18,6 +18,8 @@ export function ImageFeed() {
   //   defaultImgUrl,
   // ]
 
+  console.log(columnCount)
+
   const images = Array.from({length: 12}, (_image, index) => {
     return {
       id: index,
@@ -30,7 +32,7 @@ export function ImageFeed() {
       <ul>
       {
         images.map((image) => 
-        <li key={image.id}>
+        <li key={image.id} style={{flexBasis: `calc(${100/columnCount}% - 2 * 18px)`}}>
           <img src={image.url} alt="Imagem aleatória" width={180} />
         </li>
         )

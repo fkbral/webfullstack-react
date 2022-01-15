@@ -1,4 +1,5 @@
 import './App.css'
+import { Button } from './components/Button'
 import { ImageFeed } from './components/ImageFeed'
 
 function App() {
@@ -18,7 +19,12 @@ function App() {
       <img src={imageUrl} alt="foto da tela de um laptop" width={180} />
       {/* <img src={imageUrl} alt="" style={{width: 180, objectFit: 'cover'}} /> */}
 
-      <ImageFeed />
+      <Button 
+        isLoading={true}
+        size={32}
+      />
+
+      <ImageFeed columnCount={3} />
     </div>
   )
 }
