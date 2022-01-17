@@ -1,7 +1,7 @@
 import './styles.css'
+import Proptypes from 'prop-types'
 
 export function Menu({perfil}) {
-
   // function dizOi() {
   //   return `Olá ${perfil.name}`
   // }
@@ -25,3 +25,17 @@ export function Menu({perfil}) {
     </header>
   )
 }
+
+Menu.propTypes = {
+  perfil: Proptypes.shape({
+    nome: Proptypes.string.isRequired,
+    avatarUrl: Proptypes.string,
+  })
+}
+
+// Menu.defaultProps = {
+//   perfil: {
+//     nome: 'Felipe Cabral',
+//     avatarUrl: 'https://github.com/fkbral.png'
+//   }
+// }

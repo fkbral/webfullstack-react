@@ -38,10 +38,10 @@ class App extends React.Component {
           }
         /> */}
         <Menu 
-          perfil={{
-            nome: 'Fulano da Silva',
-            avatarUrl: 'https://source.unsplash.com/random/?profile picture'
-          }} 
+          // perfil={{
+          //   nome: 'Fulano da Silva',
+          //   avatarUrl: 'https://source.unsplash.com/random/?profile picture'
+          // }}
         />
         <Capa />
         <Titulo 

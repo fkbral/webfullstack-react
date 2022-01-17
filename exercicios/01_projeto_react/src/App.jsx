@@ -20,7 +20,6 @@ function App() {
       {/* <img src={imageUrl} alt="" style={{width: 180, objectFit: 'cover'}} /> */}
 
       <Button 
-        isLoading={true}
         size={32}
       />
 

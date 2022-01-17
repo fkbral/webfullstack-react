@@ -15,7 +15,7 @@ import './styles.css'
 export function Titulo(props) {
   // propriedade tamanho
   const {tamanho, texto, ...rest} = props
-  console.log(rest)
+  // console.log(rest)
 
   return(
     <h1
