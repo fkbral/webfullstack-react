@@ -1,7 +1,8 @@
 import { FaSpinner } from 'react-icons/fa'
 import './styles.css'
+import PropTypes from 'prop-types'
 
-export function Button({isLoading=false, size=16}) {
+export function Button({isLoading=false, size=16, children}) {
   if(isLoading) {
     return (
       <button style={{fontSize: `${size}px`}}>
@@ -12,7 +13,7 @@ export function Button({isLoading=false, size=16}) {
 
   return (
     <button style={{fontSize: `${size}px`}}>
-      Cadastre-se
+      {children}
     </button>
   )
 }
@@ -40,3 +41,13 @@ export function Button({isLoading=false, size=16}) {
 //     </button>
 //   )
 // }
+
+Button.propTypes = {
+  isLoading: PropTypes.bool,
+  size: PropTypes.number,
+}
+
+Button.defaultProps = {
+  isLoading: false,
+  size: 16,
+}

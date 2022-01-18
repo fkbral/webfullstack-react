@@ -1,4 +1,5 @@
 import './styles.css'
+import PropTypes from 'prop-types'
 
 export function ImageFeed({columnCount=2}) {
   const defaultImgUrl = "https://source.unsplash.com/random/?city,night"
@@ -18,7 +19,7 @@ export function ImageFeed({columnCount=2}) {
   //   defaultImgUrl,
   // ]
 
-  console.log(columnCount)
+  // console.log(columnCount)
 
   const images = Array.from({length: 12}, (_image, index) => {
     return {
@@ -40,4 +41,8 @@ export function ImageFeed({columnCount=2}) {
       </ul>
     </div>
   )
+}
+
+ImageFeed.propTypes = {
+  columnCount: PropTypes.number
 }

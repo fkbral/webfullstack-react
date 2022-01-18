@@ -24,11 +24,25 @@
   margin: 0;
 }
 
+.menu aside {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu button {
+  border: none;
+  background-color: transparent;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+}
+
 .menu figure {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  gap: 18px;
 }
 
 .menu figure img {

@@ -37,13 +37,15 @@ class App extends React.Component {
             }
           }
         /> */}
-        <Menu 
-          // perfil={{
-          //   nome: 'Fulano da Silva',
-          //   avatarUrl: 'https://source.unsplash.com/random/?profile picture'
-          // }}
+        <Menu
+          perfil={{
+            nome: 'Fulano da Silva',
+            avatarUrl: 'https://source.unsplash.com/random/?profile picture'
+          }}
         />
-        <Capa />
+        <Capa 
+          cor="purple"
+        />
         <Titulo 
           id="main-title"
           tamanho={'xl'}

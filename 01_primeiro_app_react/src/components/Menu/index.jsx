@@ -1,35 +1,76 @@
 import './styles.css'
-import Proptypes from 'prop-types'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { FaSignInAlt, FaSignOutAlt } from 'react-icons/fa'
 
-export function Menu({perfil}) {
+export class Menu extends React.Component {
   // function dizOi() {
   //   return `Olá ${perfil.name}`
   // }
 
-  return(
-    <header className="menu">
-      <nav>
-        <ul>
-          <li><a href="">Home</a></li>
-          <li><a href="">Sobre Nós</a></li>
-          <li><a href="">Trabalhe Conosco</a></li>
-        </ul>
+  constructor(props) {
+    super()
+    // this.state = {logado: props.perfil ? true : false}
+    this.state = { logado: !!props.perfil, perfil: props.perfil }
+  }
 
-        {perfil && (
-          <figure>
-            <img src={perfil.avatarUrl} alt={perfil.nome} />
-            <figcaption>{perfil.nome}</figcaption>
-          </figure>
-        )}
-      </nav>
-    </header>
-  )
+  render() {
+    const { perfil } = this.props
+
+    const handleSignOut = () => {
+      this.setState({ logado: false, perfil: undefined })
+    }
+
+    const handleAnonymousSignIn = () => {
+      this.setState({ 
+        logado: true,
+        perfil: {
+          nome: 'Anônimo',
+          avatarUrl: 'https://source.unsplash.com/random/?anonymous'
+        } 
+      })
+    }
+
+    return(
+      <header className="menu">
+        <nav>
+          <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">Sobre Nós</a></li>
+            <li><a href="">Trabalhe Conosco</a></li>
+          </ul>
+
+          {this.state.logado ? (
+            <aside>
+              <figure>
+                <img src={this.state.perfil.avatarUrl} alt={this.state.perfil.nome} />
+                <figcaption>{this.state.perfil.nome}</figcaption>
+              </figure>
+
+              <button onClick={handleSignOut}>
+                <FaSignOutAlt />
+              </button>
+            </aside>
+          )
+          :
+          (
+            <button onClick={handleAnonymousSignIn}>
+              <FaSignInAlt />
+              Fazer login como usuário anônimo
+            </button>
+          )
+        }
+        </nav>
+      </header>
+    )
+  }
+
 }
 
 Menu.propTypes = {
-  perfil: Proptypes.shape({
-    nome: Proptypes.string.isRequired,
-    avatarUrl: Proptypes.string,
+  perfil: PropTypes.shape({
+    nome: PropTypes.string.isRequired,
+    avatarUrl: PropTypes.string,
   })
 }
 
