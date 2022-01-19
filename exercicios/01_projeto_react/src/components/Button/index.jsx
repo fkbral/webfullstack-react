@@ -2,23 +2,27 @@ import { FaSpinner } from 'react-icons/fa'
 import './styles.css'
 import PropTypes from 'prop-types'
 
-export function Button({isLoading=false, size=16, children}) {
+export function Button(props) {
+  const {isLoading, size, children} = props
+
+  console.log(children)
+  
   if(isLoading) {
     return (
-      <button style={{fontSize: `${size}px`}}>
-          <FaSpinner className='spin' />
+      <button style={{fontSize: `${size}px`}} className='btn'>
+        <FaSpinner className='spin' />
       </button>
     )
   }
 
   return (
-    <button style={{fontSize: `${size}px`}}>
+    <button style={{fontSize: `${size}px`}} className='btn'>
       {children}
     </button>
   )
 }
 
-// export function Button({isLoading=false, size=16}) {
+// export function Button({isLoading=false, size=16, children}) {
 //   return (
 //     <button style={{fontSize: `${size}px`}}>
 //       {/* {isLoading && 
@@ -34,10 +38,10 @@ export function Button({isLoading=false, size=16, children}) {
 //         : 'Cadastre-se'
 //       } */}
 
-      // {isLoading 
-      //   ? <FaSpinner className='spin' />
-      //   : 'Cadastre-se'
-      // }
+//       {isLoading 
+//         ? <FaSpinner className='spin' />
+//         : {children}
+//       }
 //     </button>
 //   )
 // }

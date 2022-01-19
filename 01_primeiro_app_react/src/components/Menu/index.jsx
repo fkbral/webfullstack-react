@@ -15,8 +15,6 @@ export class Menu extends React.Component {
   }
 
   render() {
-    const { perfil } = this.props
-
     const handleSignOut = () => {
       this.setState({ logado: false, perfil: undefined })
     }
@@ -54,10 +52,12 @@ export class Menu extends React.Component {
           )
           :
           (
-            <button onClick={handleAnonymousSignIn}>
-              <FaSignInAlt />
-              Fazer login como usuário anônimo
-            </button>
+            <aside>
+              <button onClick={handleAnonymousSignIn}>
+                <FaSignInAlt />
+                Fazer login como usuário anônimo
+              </button>
+            </aside>
           )
         }
         </nav>
@@ -70,7 +70,7 @@ export class Menu extends React.Component {
 Menu.propTypes = {
   perfil: PropTypes.shape({
     nome: PropTypes.string.isRequired,
-    avatarUrl: PropTypes.string,
+    avatarUrl: PropTypes.string.isRequired,
   })
 }
 

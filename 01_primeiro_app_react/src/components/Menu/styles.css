@@ -30,6 +30,13 @@
   align-items: center;
 }
 
+.menu aside button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
 .menu button {
   border: none;
   background-color: transparent;

@@ -25,17 +25,16 @@ function App() {
         size={96}
       />
 
-      <Button 
-        size={32}
-      />
-
       <Button size={32}>
         <FaDoorOpen />
-        <span>Entre no sistema</span>
+        <span>
+          <p>Entre </p>
+          <strong>no sistema</strong>
+        </span>
       </Button>
 
       <button id="botao-de-login">
-        <FaDoorOpen />
+        <FaDoorOpen style={{fontSize: '100px'}} />
         <span>Entre no sistema</span>
       </button>
 
@@ -43,8 +42,9 @@ function App() {
 
       <Button 
         size={24}
-        text='Voltar ao topo'
-      />
+      >
+        Voltar ao topo
+      </Button>
     </div>
   )
 }
