@@ -1,4 +1,5 @@
 import React from "react";
+import { Person } from "../Person";
 
 // pessoa tem id, nome, cpf e idade
 export class PersonsList extends React.Component {
@@ -23,19 +24,34 @@ export class PersonsList extends React.Component {
   }
 
   render() {
+    const handleDeletePerson = (personToDelete) => {
+      this.setState({
+        pessoas: this.state.pessoas.filter(
+          person => person.id !== personToDelete.id)
+      })
+    }
+
     return(
       <ul>
-        {this.state.pessoas.map(pessoa => 
-          // <Pessoa key={} id={pessoa.id} />
-          <React.Fragment key={pessoa.id}>
-            <li>
-              <p><strong>id: </strong>{pessoa.id}</p>
-              <p><strong>nome: </strong>{pessoa.nome}</p>
-              <p><strong>cpf: </strong>{pessoa.cpf}</p>
-              <p><strong>idade: </strong> {pessoa.idade}</p>
-            </li>
-            <hr />
-          </React.Fragment>
+        {this.state.pessoas.map((pessoa) => 
+          <Person 
+            key={pessoa.id}
+            // id={pessoa.id}
+            // nome={pessoa.nome} 
+            // cpf={pessoa.cpf} 
+            // idade={pessoa.idade}
+            onDelete={() => handleDeletePerson(pessoa)}
+            pessoa={pessoa}
+          />
+          // <React.Fragment key={pessoa.id}>
+          //   <li>
+          //     <p><strong>id: </strong>{pessoa.id}</p>
+          //     <p><strong>nome: </strong>{pessoa.nome}</p>
+          //     <p><strong>cpf: </strong>{pessoa.cpf}</p>
+          //     <p><strong>idade: </strong> {pessoa.idade}</p>
+          //   </li>
+          //   <hr />
+          // </React.Fragment>
         )}
       </ul>
     )
