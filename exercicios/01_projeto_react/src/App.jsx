@@ -1,9 +1,12 @@
+import React from 'react'
+
 import './App.css'
 import { Button } from './components/Button'
 import { ImageFeed } from './components/ImageFeed'
 import { FaDoorOpen } from 'react-icons/fa'
 import { Counter } from './components/Counter'
 import { PersonsList } from './components/PersonsList'
+import { AttendanceList } from './components/AttendanceList'
 
 function App() {
   const imageUrl = "https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
@@ -23,7 +26,8 @@ function App() {
       {/* <img src={imageUrl} alt="" style={{width: 180, objectFit: 'cover'}} /> */}
 
       {/* <Counter /> */}
-      <PersonsList />
+      {/* <PersonsList /> */}
+      <AttendanceList />
 {/* 
       <Button
         isLoading={true}
