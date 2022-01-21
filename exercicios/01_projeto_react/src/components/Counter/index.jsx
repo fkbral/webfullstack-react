@@ -10,7 +10,7 @@ export class Counter extends React.Component {
     const handleDecrementCount = () => {
       this.setState({
         contador: this.state.contador > 0 ? this.state.contador - 1 : 0 
-      }) 
+      })
     }
 
     return(

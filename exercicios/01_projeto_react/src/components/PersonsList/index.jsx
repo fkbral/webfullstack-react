@@ -33,15 +33,17 @@ export class PersonsList extends React.Component {
 
     return(
       <ul>
-        {this.state.pessoas.map((pessoa) => 
-          <Person 
+        {this.state.pessoas.map((pessoa) =>
+          <Person
+            id={`pessoa-${pessoa.id}`}
+            className={'ativo'}
             key={pessoa.id}
-            // id={pessoa.id}
-            // nome={pessoa.nome} 
-            // cpf={pessoa.cpf} 
-            // idade={pessoa.idade}
             onDelete={() => handleDeletePerson(pessoa)}
             pessoa={pessoa}
+            // id={pessoa.id}
+            // nome={pessoa.nome}
+            // cpf={pessoa.cpf}
+            // idade={pessoa.idade}
           />
           // <React.Fragment key={pessoa.id}>
           //   <li>
