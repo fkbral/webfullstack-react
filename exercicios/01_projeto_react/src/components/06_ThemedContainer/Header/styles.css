@@ -1,5 +1,6 @@
 .themed-header {
   min-height: 30vh;
+  flex: 1;
 }
 
 .light {

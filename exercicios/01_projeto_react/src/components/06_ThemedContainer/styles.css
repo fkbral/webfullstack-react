@@ -1,5 +1,12 @@
 .themed-container {
   min-height: 100vh;
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.themed-container button {
+  max-width: 200px;
+  margin: 30px auto;
 }
 
 .light {
