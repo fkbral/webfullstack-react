@@ -1,0 +1,13 @@
+.themed-container {
+  min-height: 100vh;
+}
+
+.light {
+  background-color: #fff;
+  color: #555;
+}
+
+.dark {
+  background-color: #333;
+  color: #ccc;
+}

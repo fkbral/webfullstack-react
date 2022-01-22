@@ -1,0 +1,13 @@
+.themed-footer {
+  min-height: 15vh;
+}
+
+.light {
+  background-color: #fff;
+  color: #555;
+}
+
+.dark {
+  background-color: #333;
+  color: #ccc;
+}

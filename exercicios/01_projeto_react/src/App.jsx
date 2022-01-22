@@ -7,6 +7,7 @@ import { FaDoorOpen } from 'react-icons/fa'
 import { Counter } from './components/Counter'
 import { PersonsList } from './components/PersonsList'
 import { AttendanceList } from './components/AttendanceList'
+import { ThemedContainer } from './components/06_ThemedContainer'
 
 function App() {
   const imageUrl =
@@ -23,7 +24,8 @@ function App() {
 
       {/* <Counter /> */}
       {/* <PersonsList /> */}
-      <AttendanceList />
+      {/* <AttendanceList /> */}
+      <ThemedContainer />
       {/* 
       <Button
         isLoading={true}
