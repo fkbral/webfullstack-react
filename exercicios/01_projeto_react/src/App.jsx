@@ -6,7 +6,7 @@ import { ImageFeed } from './components/ImageFeed'
 import { FaDoorOpen } from 'react-icons/fa'
 import { Counter } from './components/Counter'
 import { PersonsList } from './components/PersonsList'
-import { AttendanceList } from './components/AttendanceList'
+import { AttendanceList } from './components/05_AttendanceList'
 import { ThemedContainer } from './components/06_ThemedContainer'
 
 function App() {
@@ -24,8 +24,8 @@ function App() {
 
       {/* <Counter /> */}
       {/* <PersonsList /> */}
-      {/* <AttendanceList /> */}
-      <ThemedContainer />
+      <AttendanceList />
+      {/* <ThemedContainer /> */}
       {/* 
       <Button
         isLoading={true}

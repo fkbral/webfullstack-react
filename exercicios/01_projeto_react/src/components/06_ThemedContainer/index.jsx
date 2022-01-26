@@ -25,7 +25,7 @@ export class ThemedContainer extends React.Component {
     }
 
     return (
-      <div className={`${this.state.theme} themed-container`}>
+      <div className={`theme-${this.state.theme} themed-container`}>
         <button onClick={handleSwitchTheme}>Alternar tema</button>
         <Header theme={this.state.theme} />
         <Footer theme={this.state.theme} />

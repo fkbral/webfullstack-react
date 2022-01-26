@@ -1,4 +1,6 @@
 import React from 'react'
+import { v4 as uuid } from 'uuid'
+import './styles.css'
 
 export class AttendanceList extends React.Component {
   constructor() {
@@ -42,9 +44,11 @@ export class AttendanceList extends React.Component {
           <button type="submit">adicionar</button>
         </form>
 
-        {this.state.studentsList.map(student => (
-          <p>{student}</p>
-        ))}
+        <ol className="students-list">
+          {this.state.studentsList.map(student => (
+            <li key={uuid()}>{student}</li>
+          ))}
+        </ol>
       </div>
     )
   }
