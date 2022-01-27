@@ -4,6 +4,11 @@
   flex-flow: column wrap;
 }
 
+.change-user-role-button {
+  display: flex;
+  gap: 6px;
+}
+
 .themed-container button {
   max-width: 200px;
   margin: 30px auto;

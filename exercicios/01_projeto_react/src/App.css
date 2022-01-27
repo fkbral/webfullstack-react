@@ -4,6 +4,14 @@
   box-sizing: border-box;
 }
 
+a:visited {
+  color: purple;
+}
+
+button {
+  cursor: pointer;
+}
+
 .App {
   text-align: center;
 }

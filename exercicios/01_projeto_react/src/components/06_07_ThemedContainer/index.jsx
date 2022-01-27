@@ -1,6 +1,7 @@
 import React from 'react'
 import { Footer } from './Footer'
 import { Header } from './Header'
+import { Menu } from './Menu'
 import './styles.css'
 
 // 6. Crie um toggle para alterar entre light/dark mode de um site
@@ -14,19 +15,60 @@ import './styles.css'
 export class ThemedContainer extends React.Component {
   constructor() {
     super()
-    this.state = { theme: 'dark' }
+    this.state = { theme: 'dark', userRole: 'user' }
   }
 
   render() {
+    const availableUserRoles = {
+      user: 'user',
+      marketing: 'mkt',
+      administrator: 'admin',
+    }
+
     const handleSwitchTheme = () => {
       const nextTheme = this.state.theme === 'dark' ? 'light' : 'dark'
 
       this.setState({ theme: nextTheme })
     }
 
+    const handleSwitchUserRole = () => {
+      const nextRole = this.state.userRole === 'user' ? 'admin' : 'user'
+
+      this.setState({ userRole: nextRole })
+    }
+
     return (
       <div className={`theme-${this.state.theme} themed-container`}>
+        <Menu userRole={this.state.userRole} />
         <button onClick={handleSwitchTheme}>Alternar tema</button>
+
+        <div className="change-user-role-button">
+          <button onClick={handleSwitchUserRole}>
+            Alternar papel de usuário
+          </button>
+
+          <button
+            onClick={() => this.setState({ userRole: availableUserRoles.user })}
+          >
+            Tornar usuário em usuário comum
+          </button>
+
+          <button
+            onClick={() =>
+              this.setState({ userRole: availableUserRoles.administrator })
+            }
+          >
+            Tornar usuário em administrador
+          </button>
+
+          <button
+            onClick={() =>
+              this.setState({ userRole: availableUserRoles.marketing })
+            }
+          >
+            Tornar usuário em usuário de marketing
+          </button>
+        </div>
         <Header theme={this.state.theme} />
         <Footer theme={this.state.theme} />
       </div>

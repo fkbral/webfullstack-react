@@ -7,7 +7,7 @@ import { FaDoorOpen } from 'react-icons/fa'
 import { Counter } from './components/Counter'
 import { PersonsList } from './components/PersonsList'
 import { AttendanceList } from './components/05_AttendanceList'
-import { ThemedContainer } from './components/06_ThemedContainer'
+import { ThemedContainer } from './components/06_07_ThemedContainer'
 
 function App() {
   const imageUrl =
@@ -23,8 +23,8 @@ function App() {
       {/* <img src={imageUrl} alt="" style={{width: 180, objectFit: 'cover'}} /> */}
 
       {/* <Counter /> */}
-      {/* <PersonsList /> */}
-      <AttendanceList />
+      <PersonsList />
+      {/* <AttendanceList /> */}
       {/* <ThemedContainer /> */}
       {/* 
       <Button

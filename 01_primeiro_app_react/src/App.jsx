@@ -5,6 +5,7 @@ import { Produtos } from './components/Produtos';
 import { MdSearch } from 'react-icons/md'
 import { Titulo } from './components/Titulo';
 import { Menu } from './components/Menu';
+import { Culinaria } from './components/Culinaria';
 
 class App extends React.Component {
   constructor() {
@@ -37,7 +38,7 @@ class App extends React.Component {
             }
           }
         /> */}
-        <Menu
+        {/* <Menu
           perfil={{
             nome: 'Fulano da Silva',
             avatarUrl: 'https://source.unsplash.com/random/?profile picture'
@@ -45,22 +46,25 @@ class App extends React.Component {
         />
         <Capa 
           cor="purple"
-        />
-        <Titulo 
+        /> */}
+
+        <Culinaria />
+
+        {/* <Titulo 
           id="main-title"
           tamanho={'xl'}
           texto="Título da página"
           style={{color: 'steelblue'}}
         />
-        <Pesquisa />
-        {10*5}
+        <Pesquisa /> */}
+        {/* {10*5} */}
 
         {/* <strong>{this.lapis.nome}</strong>
         <p>{this.lapis.preco}</p> */}
 
-        <Produtos />
+        {/* <Produtos /> */}
 
-        <footer
+        {/* <footer
           style={{
             backgroundColor: 'steelblue'
           }}
@@ -69,7 +73,7 @@ class App extends React.Component {
           tamanho={'md'}
           texto="Página feita durante o curso de Web FullStack"
         />
-        </footer>
+        </footer> */}
       </>
   )}
 }

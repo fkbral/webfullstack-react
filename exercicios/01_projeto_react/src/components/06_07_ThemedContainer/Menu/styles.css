@@ -1,0 +1,5 @@
+.themed-menu ul {
+  display: flex;
+  gap: 12px;
+  list-style: none;
+}
