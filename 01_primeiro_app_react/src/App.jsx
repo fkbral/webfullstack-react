@@ -1,29 +1,36 @@
-import React from 'react';
-import './App.css';
-import { Capa } from './components/Capa';
-import { Produtos } from './components/Produtos';
+import React from 'react'
+import './App.css'
+import { Capa } from './components/Capa'
+import { Produtos } from './components/Produtos'
 import { MdSearch } from 'react-icons/md'
-import { Titulo } from './components/Titulo';
-import { Menu } from './components/Menu';
-import { Culinaria } from './components/Culinaria';
+import { Titulo } from './components/Titulo'
+import { Menu } from './components/Menu'
+import { Culinaria } from './components/Culinaria'
+import { GithubProfile } from './components/GithubProfile'
 
 class App extends React.Component {
   constructor() {
+    const nome = 'Teste'
+    // babel
+    // const qualquerCoisa = nome ?? 'anonimo'
+    // const qualquerCoisa = nome ? nome : 'anonimo'
+
     super()
 
-    this.titulo = "Programando meu primeiro app React"
-    const formatadorDePreco = Intl.NumberFormat(
-      'pt-BR', {currency: 'BRL', style: 'currency'}
-    )
+    this.titulo = 'Programando meu primeiro app React'
+    const formatadorDePreco = Intl.NumberFormat('pt-BR', {
+      currency: 'BRL',
+      style: 'currency',
+    })
 
     this.lapis = {
       nome: 'lápis hb2',
       valor: 2,
-      preco: formatadorDePreco.format(2)
+      preco: formatadorDePreco.format(2),
     }
   }
 
-  render(){
+  render() {
     return (
       <>
         {/* <CartaDeBaralho
@@ -48,7 +55,8 @@ class App extends React.Component {
           cor="purple"
         /> */}
 
-        <Culinaria />
+        {/* <Culinaria /> */}
+        <GithubProfile />
 
         {/* <Titulo 
           id="main-title"
@@ -75,15 +83,16 @@ class App extends React.Component {
         />
         </footer> */}
       </>
-  )}
+    )
+  }
 }
 
 function Pesquisa() {
   return (
     <div>
       <form>
-        <label htmlFor='search'></label>
-        <input id='search' />
+        <label htmlFor="search"></label>
+        <input id="search" />
         <button>
           <MdSearch />
         </button>
@@ -108,7 +117,7 @@ function Pesquisa() {
 //     <>
 //       <h1>{titulo}</h1>
 //       <h2>Lojinha virtual</h2>
-      
+
 //       <strong>{lapis.nome}</strong>
 //       <p>{lapis.preco}</p>
 //     </>
@@ -116,4 +125,4 @@ function Pesquisa() {
 //   );
 // }
 
-export default App;
+export default App
