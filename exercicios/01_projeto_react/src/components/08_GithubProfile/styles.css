@@ -1,0 +1,11 @@
+.github-profile-container h2 {
+  margin-top: 1rem;
+}
+
+.github-profile-data li {
+  display: flex;
+}
+
+.github-profile-data li strong + p {
+  margin-left: 6px;
+}

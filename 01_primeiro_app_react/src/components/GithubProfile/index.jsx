@@ -28,6 +28,14 @@ export class GithubProfile extends React.Component {
     this.getUserProfile()
   }
 
+  componentDidUpdate(previousProps, previousState) {
+    console.log(previousProps)
+    // console.log(previousState)
+    if (previousState.count < this.state.count) {
+      console.log('aumentou')
+    }
+  }
+
   render() {
     return (
       <div>
