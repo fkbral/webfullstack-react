@@ -7,6 +7,7 @@ import { Titulo } from './components/Titulo'
 import { Menu } from './components/Menu'
 import { Culinaria } from './components/Culinaria'
 import { GithubProfile } from './components/GithubProfile'
+import { WeatherForecast } from './components/WeatherForecast'
 
 class App extends React.Component {
   constructor() {
@@ -56,7 +57,8 @@ class App extends React.Component {
         /> */}
 
         {/* <Culinaria /> */}
-        <GithubProfile />
+        {/* <GithubProfile /> */}
+        <WeatherForecast />
 
         {/* <Titulo 
           id="main-title"

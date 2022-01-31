@@ -4,12 +4,12 @@ import React from 'react'
 export class GithubProfile extends React.Component {
   constructor() {
     super()
-    this.state = { user: {}, count: 0 }
+    this.state = { user: {}, searchedUsername: '', count: 0 }
   }
 
-  async getUserProfile() {
-    const response = await fetch('https://api.github.com/users/fkbral', {
-      method: 'get',
+  async getUserProfile(userName) {
+    const response = await fetch(`https://api.github.com/users/fkbral`, {
+      method: 'GET',
     })
 
     const user = await response.json()
@@ -24,16 +24,33 @@ export class GithubProfile extends React.Component {
     // console.log(user.followers)
   }
 
+  async handleSearchGithubUsername(event) {
+    event.preventDefault()
+
+    // this.getUserProfile(this.state.searchedUsername)
+  }
+
   componentDidMount() {
-    this.getUserProfile()
+    this.getUserProfile('fkbral')
+    // this.getUserProfile('DaviGn')
+    console.log('só rodei quando o componente é montado pela primeira vez')
   }
 
   componentDidUpdate(previousProps, previousState) {
-    console.log(previousProps)
+    // console.log('atualizou')
     // console.log(previousState)
+
     if (previousState.count < this.state.count) {
       console.log('aumentou')
+      return
     }
+
+    if (previousState.count > this.state.count) {
+      console.log('diminuiu')
+      return
+    }
+
+    console.log('está igual')
   }
 
   render() {
@@ -52,7 +69,26 @@ export class GithubProfile extends React.Component {
             decrementar
           </button>
         </div>
-        <h1>Meu perfil</h1>
+
+        <form
+          action=""
+          onSubmit={event => this.handleSearchGithubUsername(event)}
+        >
+          <label htmlFor="username">
+            Entre com o nome de um usuário do Github
+          </label>
+          <input
+            id="username"
+            type="text"
+            onChange={event =>
+              this.setState({ searchedUsername: event.target.value })
+            }
+            value={this.state.searchedUsername}
+          />
+          <button>Pesquisar perfil do usuário</button>
+        </form>
+
+        <h1>Perfil do github</h1>
 
         <ul>
           <li>
@@ -64,6 +100,7 @@ export class GithubProfile extends React.Component {
             <strong>Número de seguidores: </strong>
             <p>{this.state.user.followers}</p>
           </li>
+
           <li>
             <strong>Número de repositórios: </strong>
             <p>{this.state.user.public_repos}</p>
