@@ -1,24 +1,24 @@
-import React from "react";
-import { Ingredientes } from "./Ingredientes";
-import { Receita } from "./Receita";
+import React from 'react'
+import { Ingredientes } from './Ingredientes'
+import { Receita } from './Receita'
 
 export class Culinaria extends React.Component {
   constructor() {
     super()
     this.state = {
-      ingredientes : [
+      ingredientes: [
         'cenoura',
         'ovo',
         'farinha',
         'óleo',
         'chocolate',
         'uva',
-        'maça'
-      ]
+        'maça',
+      ],
     }
   }
 
-  render(){
+  render() {
     // const ingredientes = [
     //   'cenoura',
     //   'ovo',
@@ -33,8 +33,7 @@ export class Culinaria extends React.Component {
       ingrediente => ingrediente !== 'uva' && ingrediente !== 'maça'
     )
 
-
-    return(
+    return (
       <div>
         <Ingredientes ingredientes={this.state.ingredientes} />
         <Receita nome="Bolo de Cenoura" ingredientes={receitaBolo} />

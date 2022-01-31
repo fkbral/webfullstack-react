@@ -1,15 +1,15 @@
-import React from "react";
+import React from 'react'
 import PropTypes from 'prop-types'
 
 export class Ingredientes extends React.Component {
-  render(){
-    return(
+  render() {
+    return (
       <>
         Ingredientes disponíveis
         <ul>
-          {this.props.ingredientes.map(ingrediente =>
+          {this.props.ingredientes.map(ingrediente => (
             <li>{ingrediente}</li>
-            )}
+          ))}
         </ul>
       </>
     )
@@ -17,5 +17,5 @@ export class Ingredientes extends React.Component {
 }
 
 Ingredientes.propTypes = {
-  ingredientes: PropTypes.string.isRequired
+  ingredientes: PropTypes.string.isRequired,
 }
