@@ -5,8 +5,9 @@ export default function Menu() {
   return (
     <div
       style={{
+        fontSize: 19,
         display: 'flex',
-        flexDirection: 'row',
+        alignItems: 'center',
       }}
     >
       <Link
@@ -21,3 +22,27 @@ export default function Menu() {
     </div>
   );
 }
+
+// export default class Menu extends React.Component {
+//   render() {
+//     return (
+//       <div
+//         style={{
+//           fontSize: 19,
+//           display: 'flex',
+//           alignItems: 'center',
+//         }}
+//       >
+//         <Link
+//           to="/"
+//           style={{
+//             marginRight: 15,
+//           }}
+//         >
+//           Home
+//         </Link>
+//         <Link to="/about">About</Link>
+//       </div>
+//     );
+//   }
+// }

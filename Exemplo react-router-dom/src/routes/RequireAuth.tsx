@@ -3,7 +3,6 @@ import { Navigate } from 'react-router-dom';
 
 export function RequireAuth({ children }) {
   const isAuthenticated = false;
-
   return isAuthenticated ? children : <Navigate to="/" />;
 }
 
