@@ -1,15 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './styles.css';
 
 export default function Menu() {
   return (
-    <div
-      style={{
-        fontSize: 19,
-        display: 'flex',
-        alignItems: 'center',
-      }}
-    >
+    <div className="menu-container">
       <Link
         to="/"
         style={{
@@ -18,7 +13,16 @@ export default function Menu() {
       >
         Home
       </Link>
-      <Link to="/about">About</Link>
+      <Link
+        to="/about"
+        style={{
+          marginRight: 15,
+        }}
+      >
+        About
+      </Link>
+      <Link to="/peopleList">People</Link>
+      <Link to="/gitHubProfile">Github Profile</Link>
     </div>
   );
 }

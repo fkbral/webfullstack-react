@@ -6,6 +6,8 @@ import Home from '../pages/Home';
 import About from '../pages/About';
 import Dashboard from '../pages/Dashboard';
 import Error404 from '../pages/Error404';
+import PeopleList from '../pages/PeopleList';
+import GithubProfile from '../pages/GithubProfile';
 
 export default function AppRoutes() {
   return (
@@ -21,6 +23,8 @@ export default function AppRoutes() {
             </RequireAuth>
           }
         />
+        <Route path="/peopleList" element={<PeopleList />} />
+        <Route path="/githubProfile" element={<GithubProfile />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
     </BrowserRouter>

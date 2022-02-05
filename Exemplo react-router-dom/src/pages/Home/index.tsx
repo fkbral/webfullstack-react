@@ -3,7 +3,9 @@ import Menu from '../../components/Menu';
 import Button from '../../components/Button';
 
 export default function Home() {
-  const aux = useRef(10);
+  const counterRef = useRef(0);
+  const inputValueRef = useRef('');
+
   const [counter, setCounter] = useState(0);
   const [isTrue, setIsTrue] = useState(false);
 
@@ -16,11 +18,11 @@ export default function Home() {
     // setIsTrue(!isTrue);
     setIsTrue((state) => !state);
 
-    aux.current++;
+    counterRef.current++;
   }
 
   console.log('Renderizei!');
-  console.log(aux.current);
+  console.log(counterRef.current);
 
   return (
     <div>
@@ -28,6 +30,7 @@ export default function Home() {
       <h1>Home</h1>
 
       <p>Contador: {counter}</p>
+      <p>Valor na ref: {counterRef.current}</p>
       <p>IsTrue: {isTrue.toString()}</p>
       <Button
         style={{
@@ -37,6 +40,17 @@ export default function Home() {
       >
         Meu botão
       </Button>
+
+      <br />
+      <br />
+      <input
+        type="text"
+        onChange={(event) => {
+          // setInputValue(event.target.value);
+          inputValueRef.current = event.target.value;
+        }}
+      />
+      <p>Valor digitado: {inputValueRef.current}</p>
     </div>
   );
 }
