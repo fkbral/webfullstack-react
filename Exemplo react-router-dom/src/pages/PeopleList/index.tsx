@@ -4,18 +4,25 @@ import Menu from '../../components/Menu';
 import Person from './person';
 import './styles.css';
 
+export interface PersonInfos {
+  id: string;
+  name: string;
+  cpf: string;
+  age: string;
+}
+
 export default function PeopleList() {
   const nameValueRef = useRef('');
   const cpfValueRef = useRef('');
   const ageValueRef = useRef('');
 
-  const [people, setPeople] = useState([]);
+  const [people, setPeople] = useState<PersonInfos[]>([]);
 
-  function handleOnChangeName(event) {
+  function handleOnChangeName(event: any) {
     nameValueRef.current = event.target.value;
   }
 
-  const handleOnChangeCpf = (event) => {
+  const handleOnChangeCpf = (event: any) => {
     cpfValueRef.current = event.target.value;
   };
 
@@ -40,7 +47,7 @@ export default function PeopleList() {
     // ]);
   }
 
-  function handleDelete(id) {
+  function handleDelete(id: string) {
     setPeople((state) => state.filter((x) => x.id !== id));
   }
 

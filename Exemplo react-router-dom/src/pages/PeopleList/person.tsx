@@ -1,7 +1,12 @@
 import React from 'react';
+import { PersonInfos } from '.';
 import './personStyles.css';
 
-export default function Person({ person, onDelete }) {
+interface PersonProps {
+  person: PersonInfos;
+  onDelete: (id: string) => void;
+}
+export default function Person({ person, onDelete }: PersonProps) {
   function handleDelete() {
     onDelete(person.id);
   }
