@@ -1,7 +1,14 @@
-export default function Button({ children, onClick, ...rest }) {
+import React from 'react';
+
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  onClick?: () => void;
+  children: React.ReactNode;
+}
+
+export default function Button({ children, onClick, ...rest }: ButtonProps) {
   function onClickInterno() {
     console.log('Fui clicado!');
-    onClick();
+    onClick && onClick();
   }
 
   return (

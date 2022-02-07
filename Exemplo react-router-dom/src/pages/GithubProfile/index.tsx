@@ -1,13 +1,13 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import Menu from '../../components/Menu';
 import './styles.css';
 
-interface UserProfileProps {
+type UserProfileProps = {
   name: string;
   bio: string;
   followers: number;
   following: number;
-}
+};
 
 interface RepositoryProps {
   id: number;
@@ -22,6 +22,11 @@ export default function GithubProfile() {
   const [userProfile, setUserProfile] = useState<UserProfileProps>();
   const [loadingRepositories, setLoadingRepositories] = useState(true);
   const [repositories, setRepositories] = useState<RepositoryProps[]>([]);
+
+  const repositoriesCount = useMemo(() => {
+    // Qualquer outro código complexo para gerar o resultado...
+    return repositories.length;
+  }, [repositories]);
 
   const usernameValueRef = useRef('');
 
@@ -122,6 +127,7 @@ export default function GithubProfile() {
               <li key={item.id}>{item.name}</li>
             ))}
           </ul>
+          <span>Count: {repositoriesCount}</span>
         </div>
       )}
     </>
