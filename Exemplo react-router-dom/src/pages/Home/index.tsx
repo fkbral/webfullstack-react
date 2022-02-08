@@ -1,8 +1,10 @@
 import { useRef, useState } from 'react';
 import Menu from '../../components/Menu';
 import Button from '../../components/Button';
+import { useTheme } from '../../hooks/theme';
 
 export default function Home() {
+  const { theme } = useTheme();
   const counterRef = useRef(0);
   const inputValueRef = useRef('');
 
@@ -28,6 +30,7 @@ export default function Home() {
     <div>
       <Menu />
       <h1>Home</h1>
+      <span>Tema escolhido: {theme}</span>
 
       <p>Contador: {counter}</p>
       <p>Valor na ref: {counterRef.current}</p>
