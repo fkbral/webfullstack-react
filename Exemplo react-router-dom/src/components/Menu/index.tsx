@@ -23,6 +23,7 @@ export default function Menu() {
       </Link>
       <Link to="/peopleList">People</Link>
       <Link to="/gitHubProfile">Github Profile</Link>
+      <Link to="/classList">Class list</Link>
     </div>
   );
 }

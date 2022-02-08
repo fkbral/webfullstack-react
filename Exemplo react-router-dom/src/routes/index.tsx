@@ -8,6 +8,7 @@ import Dashboard from '../pages/Dashboard';
 import Error404 from '../pages/Error404';
 import PeopleList from '../pages/PeopleList';
 import GithubProfile from '../pages/GithubProfile';
+import ClassList from '../pages/ClassList';
 
 export default function AppRoutes() {
   return (
@@ -25,6 +26,7 @@ export default function AppRoutes() {
         />
         <Route path="/peopleList" element={<PeopleList />} />
         <Route path="/githubProfile" element={<GithubProfile />} />
+        <Route path="/classList" element={<ClassList />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
     </BrowserRouter>
