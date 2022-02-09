@@ -4,7 +4,8 @@ import Button from '../../components/Button';
 import { useTheme } from '../../hooks/theme';
 
 export default function Home() {
-  const { theme } = useTheme();
+  const { theme, setDarkTheme, setLightTheme } = useTheme();
+  // const { theme } = useContext(ThemeContext);
   const counterRef = useRef(0);
   const inputValueRef = useRef('');
 
@@ -27,14 +28,59 @@ export default function Home() {
   console.log(counterRef.current);
 
   return (
-    <div>
+    <div
+      style={{
+        backgroundColor: theme === 'light' ? '#fff' : '#000',
+      }}
+    >
       <Menu />
-      <h1>Home</h1>
-      <span>Tema escolhido: {theme}</span>
+      <h1
+        style={{
+          color: theme === 'dark' ? '#fff' : '#000',
+        }}
+      >
+        Home
+      </h1>
+      <span
+        style={{
+          color: theme === 'dark' ? '#fff' : '#000',
+        }}
+      >
+        Tema escolhido: {theme}
+      </span>
+      <br />
 
-      <p>Contador: {counter}</p>
-      <p>Valor na ref: {counterRef.current}</p>
-      <p>IsTrue: {isTrue.toString()}</p>
+      <Button
+        onClick={() => {
+          theme === 'light' ? setDarkTheme() : setLightTheme();
+        }}
+      >
+        Alternar temas
+      </Button>
+      <br />
+      <br />
+
+      <p
+        style={{
+          color: theme === 'dark' ? '#fff' : '#000',
+        }}
+      >
+        Contador: {counter}
+      </p>
+      <p
+        style={{
+          color: theme === 'dark' ? '#fff' : '#000',
+        }}
+      >
+        Valor na ref: {counterRef.current}
+      </p>
+      <p
+        style={{
+          color: theme === 'dark' ? '#fff' : '#000',
+        }}
+      >
+        IsTrue: {isTrue.toString()}
+      </p>
       <Button
         style={{
           backgroundColor: '#f45',
@@ -53,7 +99,13 @@ export default function Home() {
           inputValueRef.current = event.target.value;
         }}
       />
-      <p>Valor digitado: {inputValueRef.current}</p>
+      <p
+        style={{
+          color: theme === 'dark' ? '#fff' : '#000',
+        }}
+      >
+        Valor digitado: {inputValueRef.current}
+      </p>
     </div>
   );
 }

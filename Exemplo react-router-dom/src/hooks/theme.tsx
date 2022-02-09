@@ -1,7 +1,9 @@
 import { useContext, createContext, useState, useMemo } from 'react';
 
 interface ThemeContextData {
-  theme: string;
+  theme: 'light' | 'dark';
+  setLightTheme: () => void;
+  setDarkTheme: () => void;
 }
 
 interface ThemeProviderProps {
@@ -15,9 +17,19 @@ const ThemeContext = createContext<ThemeContextData>({} as ThemeContextData);
 export function ThemeProvider({ children }: ThemeProviderProps) {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
+  function setLightTheme() {
+    setTheme('light');
+  }
+
+  function setDarkTheme() {
+    setTheme('dark');
+  }
+
   const themeData = useMemo(
     () => ({
       theme: theme,
+      setLightTheme,
+      setDarkTheme,
     }),
     [theme]
   );

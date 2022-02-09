@@ -21,6 +21,7 @@ export default function Menu() {
       >
         About
       </Link>
+      <Link to="/dashboard">Dashboard</Link>
       <Link to="/peopleList">People</Link>
       <Link to="/gitHubProfile">Github Profile</Link>
       <Link to="/classList">Class list</Link>
