@@ -1,5 +1,6 @@
 import React from 'react';
 import { SettingsProvider } from './settings';
+import { AuthProvider } from './auth';
 import { ThemeProvider } from './theme';
 
 interface ContextsProviderProps {
@@ -9,8 +10,10 @@ interface ContextsProviderProps {
 // children vai ter as minhas rotas
 export default function ContextsProvider({ children }: ContextsProviderProps) {
   return (
-    <SettingsProvider>
-      <ThemeProvider>{children}</ThemeProvider>
-    </SettingsProvider>
+    <AuthProvider>
+      <SettingsProvider>
+        <ThemeProvider>{children}</ThemeProvider>
+      </SettingsProvider>
+    </AuthProvider>
   );
 }

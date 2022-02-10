@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import Menu from '../../components/Menu';
 import Button from '../../components/Button';
 import { useTheme } from '../../hooks/theme';
+import { useAuth } from '../../hooks/auth';
 
 export default function Home() {
   const { theme, setDarkTheme, setLightTheme } = useTheme();

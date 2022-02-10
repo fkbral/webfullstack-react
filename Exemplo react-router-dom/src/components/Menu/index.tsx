@@ -1,8 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSettings } from '../../hooks/settings';
 import './styles.css';
 
 export default function Menu() {
+  const { settings } = useSettings();
+  const showDashboardLink = settings.find(
+    (x) => x.name === 'enableDashboard'
+  )?.value;
+
   return (
     <div className="menu-container">
       <Link
@@ -21,7 +27,7 @@ export default function Menu() {
       >
         About
       </Link>
-      <Link to="/dashboard">Dashboard</Link>
+      {showDashboardLink === 'true' && <Link to="/dashboard">Dashboard</Link>}
       <Link to="/peopleList">People</Link>
       <Link to="/gitHubProfile">Github Profile</Link>
       <Link to="/classList">Class list</Link>
