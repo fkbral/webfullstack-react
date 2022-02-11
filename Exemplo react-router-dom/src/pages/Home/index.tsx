@@ -2,11 +2,20 @@ import { useRef, useState } from 'react';
 import Menu from '../../components/Menu';
 import Button from '../../components/Button';
 import { useTheme } from '../../hooks/theme';
-import { useAuth } from '../../hooks/auth';
+import { useLocation } from 'react-router-dom';
+import { useQueryParams } from '../../utils/useQueryParams';
 
 export default function Home() {
+  // Para obter parâmetros
+  // const location = useLocation();
+  // const queryParams = useQueryParams();
+
+  // console.log(queryParams.get('typeQueryParams'));
+  // console.log(location);
+
   const { theme, setDarkTheme, setLightTheme } = useTheme();
   // const { theme } = useContext(ThemeContext);
+
   const counterRef = useRef(0);
   const inputValueRef = useRef('');
 

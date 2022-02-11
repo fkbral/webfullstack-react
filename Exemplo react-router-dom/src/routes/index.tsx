@@ -27,14 +27,50 @@ export default function AppRoutes() {
         ) : (
           <>
             <Route path="/" element={<Login />} />
-            <Route path="/home" element={<Home />} />
+            {/* <Route path="/" element={user?.id ? <Home /> : <Login />} /> */}
+            <Route
+              path="/home"
+              element={
+                <RequireAuth>
+                  <Home />
+                </RequireAuth>
+              }
+            />
             <Route path="/about" element={<About />} />
             {enableDashboardLink === 'true' && (
-              <Route path="/dashboard" element={<Dashboard />} />
+              <Route
+                path="/dashboard"
+                element={
+                  <RequireAuth>
+                    <Dashboard />
+                  </RequireAuth>
+                }
+              />
             )}
-            <Route path="/peopleList" element={<PeopleList />} />
-            <Route path="/githubProfile" element={<GithubProfile />} />
-            <Route path="/classList" element={<ClassList />} />
+            <Route
+              path="/peopleList"
+              element={
+                <RequireAuth>
+                  <PeopleList />
+                </RequireAuth>
+              }
+            />
+            <Route
+              path="/githubProfile"
+              element={
+                <RequireAuth>
+                  <GithubProfile />
+                </RequireAuth>
+              }
+            />
+            <Route
+              path="/classList"
+              element={
+                <RequireAuth>
+                  <ClassList />
+                </RequireAuth>
+              }
+            />
             <Route path="*" element={<Error404 />} />
           </>
         )}

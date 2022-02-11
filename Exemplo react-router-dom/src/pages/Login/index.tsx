@@ -1,22 +1,40 @@
 import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { v4 } from 'uuid';
 import Button from '../../components/Button';
 import { useAuth } from '../../hooks/auth';
 import './styles.css';
 
 export default function Login() {
-  const { user, setUserData } = useAuth();
+  const { setUserData } = useAuth();
+  const navigate = useNavigate();
+
   const emailValueRef = useRef('');
   const passwordValueRef = useRef('');
 
-  function handlerSubmmit() {
+  function handleSubmmit() {
+    const emailIsValid =
+      /[a-z0-9!#$%&'*+=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/gi.test(
+        emailValueRef.current
+      );
+
+    if (!emailIsValid) {
+      alert('E-mail inválido!');
+      return;
+    }
+
     if (
       emailValueRef.current === 'teste@teste.com' &&
       passwordValueRef.current === '123456'
     ) {
-      setUserData({
+      const userData = {
+        id: v4(),
         email: emailValueRef.current,
         name: 'Usuário teste',
-      });
+      };
+
+      setUserData(userData);
+      navigate('/home');
       return;
     }
 
@@ -46,7 +64,7 @@ export default function Login() {
             }}
           />
         </div>
-        <Button onClick={handlerSubmmit}>Entrar</Button>
+        <Button onClick={handleSubmmit}>Entrar</Button>
       </div>
     </div>
   );

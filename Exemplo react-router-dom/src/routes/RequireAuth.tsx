@@ -1,8 +1,10 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
+import { useAuth } from '../hooks/auth';
 
 export function RequireAuth({ children }) {
-  const isAuthenticated = false;
+  const { user } = useAuth();
+  const isAuthenticated = !!user?.id;
   return isAuthenticated ? children : <Navigate to="/" />;
 }
 
