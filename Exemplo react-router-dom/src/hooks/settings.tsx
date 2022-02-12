@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import { usePersistentState } from '../utils/usePersistentState';
 
 interface Setting {
   name: string;
@@ -28,9 +29,30 @@ const SettingsContext = createContext<SettingsContextData>(
   {} as SettingsContextData
 );
 
+const settingsKey = '@Turma736:Settings';
+const settingsExpirationKey = '@Turma736:SettingsExpiration';
+
+function getExpiration() {
+  const dateNow = new Date();
+  dateNow.setMinutes(dateNow.getMinutes() + 1);
+  return dateNow;
+}
+
 export function SettingsProvider({ children }: SettingsProviderProps) {
-  const [loadingSettings, setLoadingSettings] = useState(true);
-  const [settings, setSettings] = useState<Setting[]>([]);
+  const [settings, setSettings] = usePersistentState<Setting[]>(
+    settingsKey,
+    []
+  );
+
+  const [expires, setExpires] = usePersistentState<Date>(
+    settingsExpirationKey,
+    getExpiration()
+  );
+
+  const settingsIsValid = expires > new Date();
+  const [loadingSettings, setLoadingSettings] = useState(
+    settings.length === 0 || settingsIsValid
+  );
 
   useEffect(() => {
     function loadSettings() {
@@ -38,11 +60,22 @@ export function SettingsProvider({ children }: SettingsProviderProps) {
       setTimeout(() => {
         const settingsFromServer = getSettingsFromServer();
         setSettings(settingsFromServer);
+        localStorage.setItem(settingsKey, JSON.stringify(settingsFromServer));
+
+        const newExpiration = getExpiration();
+        setExpires(newExpiration);
+        localStorage.setItem(
+          settingsExpirationKey,
+          JSON.stringify(newExpiration)
+        );
+
         setLoadingSettings(false);
       }, 5000);
     }
 
-    loadSettings();
+    if (settings.length === 0 || !settingsIsValid) {
+      loadSettings();
+    }
   }, []);
 
   const settingsData = useMemo(
