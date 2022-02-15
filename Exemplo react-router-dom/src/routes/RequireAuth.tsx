@@ -2,7 +2,7 @@ import React from 'react';
 import { Navigate } from 'react-router-dom';
 import { useAuth } from '../hooks/auth';
 
-export function RequireAuth({ children }) {
+export function RequireAuth({ children }: any) {
   const { user } = useAuth();
   const isAuthenticated = !!user?.id;
   return isAuthenticated ? children : <Navigate to="/" />;

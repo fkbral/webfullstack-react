@@ -1,9 +1,10 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { v4 } from 'uuid';
 import Button from '../../components/Button';
 import { useAuth } from '../../hooks/auth';
-import './styles.css';
+import { Container, FormContainer } from './styles';
+import { InputContainer } from '../../styles/common';
 
 export default function Login() {
   const { setUserData } = useAuth();
@@ -11,6 +12,8 @@ export default function Login() {
 
   const emailValueRef = useRef('');
   const passwordValueRef = useRef('');
+
+  const [loading, setLoading] = useState(false);
 
   function handleSubmmit() {
     const emailIsValid =
@@ -23,18 +26,21 @@ export default function Login() {
       return;
     }
 
+    setLoading(true);
     if (
       emailValueRef.current === 'teste@teste.com' &&
       passwordValueRef.current === '123456'
     ) {
-      const userData = {
-        id: v4(),
-        email: emailValueRef.current,
-        name: 'Usuário teste',
-      };
+      setTimeout(() => {
+        const userData = {
+          id: v4(),
+          email: emailValueRef.current,
+          name: 'Usuário teste',
+        };
 
-      setUserData(userData);
-      navigate('/home');
+        setUserData(userData);
+        navigate('/home');
+      }, 5000);
       return;
     }
 
@@ -42,9 +48,9 @@ export default function Login() {
   }
 
   return (
-    <div className="container">
-      <div className="form-container">
-        <div className="input-container">
+    <Container>
+      <FormContainer>
+        <InputContainer>
           <label>E-mail</label>
           <input
             type="email"
@@ -53,8 +59,8 @@ export default function Login() {
               emailValueRef.current = event.target.value;
             }}
           />
-        </div>
-        <div className="input-container">
+        </InputContainer>
+        <InputContainer>
           <label>Senha</label>
           <input
             type="password"
@@ -63,9 +69,11 @@ export default function Login() {
               passwordValueRef.current = event.target.value;
             }}
           />
-        </div>
-        <Button onClick={handleSubmmit}>Entrar</Button>
-      </div>
-    </div>
+        </InputContainer>
+        <Button loading={loading} onClick={handleSubmmit}>
+          Entrar
+        </Button>
+      </FormContainer>
+    </Container>
   );
 }

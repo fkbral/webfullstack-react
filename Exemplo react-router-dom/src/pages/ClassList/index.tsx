@@ -15,7 +15,7 @@ export default function ClassList() {
   const inputRef = useRef<HTMLInputElement>(null);
   const inputValueRef = useRef('');
 
-  function handleInputOnChange(event) {
+  function handleInputOnChange(event: any) {
     inputValueRef.current = event.target.value;
   }
 
