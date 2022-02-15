@@ -1,4 +1,19 @@
 import styled from 'styled-components';
+import { Primary } from '../utils/colors';
+
+export const Main = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const Container = styled.div`
+  height: 100vh;
+  max-width: 920px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+`;
 
 export const InputContainer = styled.div`
   width: 100%;
@@ -19,7 +34,7 @@ export const InputContainer = styled.div`
     &:hover,
     &:focus,
     &:active {
-      border-bottom-color: #1cbaa4;
+      border-bottom-color: ${Primary};
     }
   }
 `;

@@ -1,37 +1,24 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useSettings } from '../../hooks/settings';
-import './styles.css';
+import { Container, MenuItem } from './styles';
 
 export default function Menu() {
   const { settings } = useSettings();
-  const showDashboardLink = settings.find(
+  const showDashboardMenuItem = settings.find(
     (x) => x.name === 'enableDashboard'
   )?.value;
 
   return (
-    <div className="menu-container">
-      <Link
-        to="/"
-        style={{
-          marginRight: 15,
-        }}
-      >
-        Home
-      </Link>
-      <Link
-        to="/about"
-        style={{
-          marginRight: 15,
-        }}
-      >
-        About
-      </Link>
-      {showDashboardLink === 'true' && <Link to="/dashboard">Dashboard</Link>}
-      <Link to="/peopleList">People</Link>
-      <Link to="/gitHubProfile">Github Profile</Link>
-      <Link to="/classList">Class list</Link>
-    </div>
+    <Container>
+      <MenuItem to="/">Home</MenuItem>
+      <MenuItem to="/about">About</MenuItem>
+      {showDashboardMenuItem === 'true' && (
+        <MenuItem to="/dashboard">Dashboard</MenuItem>
+      )}
+      <MenuItem to="/peopleList">People</MenuItem>
+      <MenuItem to="/gitHubProfile">Github Profile</MenuItem>
+      <MenuItem to="/classList">Class list</MenuItem>
+    </Container>
   );
 }
 
@@ -45,15 +32,15 @@ export default function Menu() {
 //           alignItems: 'center',
 //         }}
 //       >
-//         <Link
+//         <MenuItem
 //           to="/"
 //           style={{
 //             marginRight: 15,
 //           }}
 //         >
 //           Home
-//         </Link>
-//         <Link to="/about">About</Link>
+//         </MenuItem>
+//         <MenuItem to="/about">About</MenuItem>
 //       </div>
 //     );
 //   }

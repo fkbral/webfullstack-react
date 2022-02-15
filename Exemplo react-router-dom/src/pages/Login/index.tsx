@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { v4 } from 'uuid';
 import Button from '../../components/Button';
 import { useAuth } from '../../hooks/auth';
-import { Container, FormContainer } from './styles';
-import { InputContainer } from '../../styles/common';
+import { FormContainer } from './styles';
+import { InputContainer, Main, Container } from '../../styles/common';
 
 export default function Login() {
   const { setUserData } = useAuth();
@@ -48,32 +48,39 @@ export default function Login() {
   }
 
   return (
-    <Container>
-      <FormContainer>
-        <InputContainer>
-          <label>E-mail</label>
-          <input
-            type="email"
-            placeholder="Digite um e-mail..."
-            onChange={(event) => {
-              emailValueRef.current = event.target.value;
-            }}
-          />
-        </InputContainer>
-        <InputContainer>
-          <label>Senha</label>
-          <input
-            type="password"
-            placeholder="Digite a senha..."
-            onChange={(event) => {
-              passwordValueRef.current = event.target.value;
-            }}
-          />
-        </InputContainer>
-        <Button loading={loading} onClick={handleSubmmit}>
-          Entrar
-        </Button>
-      </FormContainer>
-    </Container>
+    <Main>
+      <Container
+        style={{
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <FormContainer>
+          <InputContainer>
+            <label>E-mail</label>
+            <input
+              type="email"
+              placeholder="Digite um e-mail..."
+              onChange={(event) => {
+                emailValueRef.current = event.target.value;
+              }}
+            />
+          </InputContainer>
+          <InputContainer>
+            <label>Senha</label>
+            <input
+              type="password"
+              placeholder="Digite a senha..."
+              onChange={(event) => {
+                passwordValueRef.current = event.target.value;
+              }}
+            />
+          </InputContainer>
+          <Button loading={loading} onClick={handleSubmmit}>
+            Entrar
+          </Button>
+        </FormContainer>
+      </Container>
+    </Main>
   );
 }
