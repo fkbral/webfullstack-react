@@ -1,5 +1,9 @@
 import { useContext, createContext, useState, useMemo } from 'react';
 import { usePersistentState } from '../utils/usePersistentState';
+import { ThemeProvider as StyledThemeProvider } from 'styled-components';
+
+import light from '../styles/themes/light';
+import dark from '../styles/themes/dark';
 
 interface ThemeContextData {
   theme: 'light' | 'dark';
@@ -47,7 +51,11 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
   );
 
   return (
-    <ThemeContext.Provider value={themeData}>{children}</ThemeContext.Provider>
+    <ThemeContext.Provider value={themeData}>
+      <StyledThemeProvider theme={theme === 'light' ? light : dark}>
+        {children}
+      </StyledThemeProvider>
+    </ThemeContext.Provider>
   );
 }
 

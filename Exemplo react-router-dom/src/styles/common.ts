@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import { Primary } from '../utils/colors';
 
 export const Main = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  background: ${(props) => props.theme.background};
 `;
 
 export const Container = styled.div`
@@ -30,11 +30,19 @@ export const InputContainer = styled.div`
     padding: 11px;
     border: none;
     border-bottom: 1px #ccc solid;
+    background: transparent;
 
     &:hover,
     &:focus,
     &:active {
-      border-bottom-color: ${Primary};
+      border-bottom-color: ${(props) => props.theme.input.hoverColor};
     }
   }
+`;
+
+export const Title = styled.h1`
+  font-size: 23px;
+  font-weight: 500;
+  color: ${(props) => props.theme.title};
+  margin-bottom: 9px;
 `;

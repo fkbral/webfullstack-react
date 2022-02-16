@@ -45,6 +45,7 @@ export default function Login() {
     }
 
     alert('Usuário e/ou senha incorreto(s)!');
+    setLoading(false);
   }
 
   return (

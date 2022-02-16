@@ -5,6 +5,8 @@ import { useTheme } from '../../hooks/theme';
 import { useLocation } from 'react-router-dom';
 import { useQueryParams } from '../../utils/useQueryParams';
 import Layout from '../../components/Layout';
+import { Title } from '../../styles/common';
+import { RedButton, SelectedThemeText, Text } from './styles';
 
 export default function Home() {
   // Para obter parâmetros
@@ -40,84 +42,30 @@ export default function Home() {
 
   return (
     <Layout>
-      <div
-        style={{
-          backgroundColor: theme === 'light' ? '#fff' : '#000',
+      <Title>Home</Title>
+      <SelectedThemeText>Tema escolhido: {theme}</SelectedThemeText>
+      <Button
+        onClick={() => {
+          theme === 'light' ? setDarkTheme() : setLightTheme();
         }}
       >
-        <h1
-          style={{
-            color: theme === 'dark' ? '#fff' : '#000',
-          }}
-        >
-          Home
-        </h1>
-        <span
-          style={{
-            color: theme === 'dark' ? '#fff' : '#000',
-          }}
-        >
-          Tema escolhido: {theme}
-        </span>
-        <br />
+        Alternar temas
+      </Button>
+      <Text>Contador: {counter}</Text>
+      <Text>Valor na ref: {counterRef.current}</Text>
+      <Text>IsTrue: {isTrue.toString()}</Text>
+      <RedButton onClick={quandoClicarFunction}>Meu botão</RedButton>
 
-        <Button
-          onClick={() => {
-            theme === 'light' ? setDarkTheme() : setLightTheme();
-          }}
-        >
-          Alternar temas
-        </Button>
-        <br />
-        <br />
-
-        <p
-          style={{
-            color: theme === 'dark' ? '#fff' : '#000',
-          }}
-        >
-          Contador: {counter}
-        </p>
-        <p
-          style={{
-            color: theme === 'dark' ? '#fff' : '#000',
-          }}
-        >
-          Valor na ref: {counterRef.current}
-        </p>
-        <p
-          style={{
-            color: theme === 'dark' ? '#fff' : '#000',
-          }}
-        >
-          IsTrue: {isTrue.toString()}
-        </p>
-        <Button
-          style={{
-            backgroundColor: '#f45',
-          }}
-          onClick={quandoClicarFunction}
-        >
-          Meu botão
-        </Button>
-
-        <br />
-        <br />
-        <input
-          type="text"
-          onChange={(event) => {
-            // setInputValue(event.target.value);
-            inputValueRef.current = event.target.value;
-          }}
-        />
-        <p
-          style={{
-            color: theme === 'dark' ? '#fff' : '#000',
-          }}
-        >
-          Valor digitado: {inputValueRef.current}
-        </p>
-      </div>
+      <br />
+      <br />
+      <input
+        type="text"
+        onChange={(event) => {
+          // setInputValue(event.target.value);
+          inputValueRef.current = event.target.value;
+        }}
+      />
+      <Text>Valor digitado: {inputValueRef.current}</Text>
     </Layout>
   );
 }
