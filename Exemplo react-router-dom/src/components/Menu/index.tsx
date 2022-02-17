@@ -10,7 +10,7 @@ export default function Menu() {
 
   return (
     <Container>
-      <MenuItem to="/">Home</MenuItem>
+      <MenuItem to="/home">Home</MenuItem>
       <MenuItem to="/about">About</MenuItem>
       {showDashboardMenuItem === 'true' && (
         <MenuItem to="/dashboard">Dashboard</MenuItem>

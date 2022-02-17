@@ -1,8 +1,10 @@
 import React, { useRef, useState } from 'react';
 import { v4 } from 'uuid';
-import Menu from '../../components/Menu';
+import Button from '../../components/Button';
+import Layout from '../../components/Layout';
+import { InputContainer } from '../../styles/common';
 import Person from './person';
-import './styles.css';
+import { FormContainer } from './styles';
 
 export interface PersonInfos {
   id: string;
@@ -54,20 +56,26 @@ export default function PeopleList() {
   console.log(people);
 
   return (
-    <>
-      <Menu />
-      <div className="container">
-        <div className="form-container">
+    <Layout>
+      <FormContainer>
+        <InputContainer>
+          <label>Nome</label>
           <input
             type="text"
             placeholder="Digite um nome"
             onChange={handleOnChangeName}
           />
+        </InputContainer>
+        <InputContainer>
+          <label>CPF</label>
           <input
             type="text"
             placeholder="Digite um cpf"
             onChange={handleOnChangeCpf}
           />
+        </InputContainer>
+        <InputContainer>
+          <label>Idade</label>
           <input
             type="text"
             placeholder="Digite a idade"
@@ -75,14 +83,14 @@ export default function PeopleList() {
               ageValueRef.current = event.target.value;
             }}
           />
-          <button onClick={handleSubmmit}>Enviar</button>
-        </div>
-        <div className="people-list-container">
-          {people.map((person) => (
-            <Person key={person.id} person={person} onDelete={handleDelete} />
-          ))}
-        </div>
+        </InputContainer>
+        <Button onClick={handleSubmmit}>Enviar</Button>
+      </FormContainer>
+      <div className="people-list-container">
+        {people.map((person) => (
+          <Person key={person.id} person={person} onDelete={handleDelete} />
+        ))}
       </div>
-    </>
+    </Layout>
   );
 }

@@ -12,6 +12,7 @@ export const Container = styled.div`
 export const MenuItem = styled(Link)`
   text-decoration: none;
   padding: 19px 11px;
+  color: ${(props) => props.theme.text};
 
   &:hover {
     background-color: ${Primary};

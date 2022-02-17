@@ -16,9 +16,9 @@ export const Container = styled.div`
 `;
 
 export const InputContainer = styled.div`
-  width: 100%;
-  display: flex !important;
-  flex-direction: column !important;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
   margin-bottom: 17px;
 
   > label {
@@ -31,6 +31,7 @@ export const InputContainer = styled.div`
     border: none;
     border-bottom: 1px #ccc solid;
     background: transparent;
+    color: ${(props) => props.theme.text};
 
     &:hover,
     &:focus,

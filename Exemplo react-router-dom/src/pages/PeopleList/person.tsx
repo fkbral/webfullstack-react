@@ -1,6 +1,12 @@
 import React from 'react';
 import { PersonInfos } from '.';
-import './personStyles.css';
+import {
+  PersonContainer,
+  Infos,
+  PersonInfosContainer,
+  MenuContainer,
+  RedButton,
+} from './personStyles';
 
 type PersonProps = {
   person: PersonInfos;
@@ -12,24 +18,24 @@ export default function Person({ person, onDelete }: PersonProps) {
   }
 
   return (
-    <div className="person-container">
-      <div className="person-infos-container">
-        <div className="info">
+    <PersonContainer>
+      <PersonInfosContainer>
+        <Infos>
           <label>Nome:</label>
           <p>{person.name}</p>
-        </div>
-        <div className="info">
+        </Infos>
+        <Infos>
           <label>Cpf:</label>
           <p>{person.cpf}</p>
-        </div>
-        <div className="info">
+        </Infos>
+        <Infos>
           <label>Idade:</label>
           <p>{person.age}</p>
-        </div>
-      </div>
-      <div className="menu-container">
-        <button onClick={handleDelete}>Excluir</button>
-      </div>
-    </div>
+        </Infos>
+      </PersonInfosContainer>
+      <MenuContainer>
+        <RedButton onClick={handleDelete}>Excluir</RedButton>
+      </MenuContainer>
+    </PersonContainer>
   );
 }
