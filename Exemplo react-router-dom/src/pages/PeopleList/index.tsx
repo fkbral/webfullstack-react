@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { v4 } from 'uuid';
 import Button from '../../components/Button';
 import Layout from '../../components/Layout';
@@ -49,9 +49,9 @@ export default function PeopleList() {
     // ]);
   }
 
-  function handleDelete(id: string) {
+  const handleDelete = useCallback((id: string) => {
     setPeople((state) => state.filter((x) => x.id !== id));
-  }
+  }, []);
 
   console.log(people);
 

@@ -1,4 +1,10 @@
-import { useContext, createContext, useState, useMemo } from 'react';
+import {
+  useContext,
+  createContext,
+  useState,
+  useMemo,
+  useCallback,
+} from 'react';
 import { usePersistentState } from '../utils/usePersistentState';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
@@ -31,15 +37,15 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
     localStorage.setItem(themeKey, newTheme);
   }
 
-  function setLightTheme() {
+  const setLightTheme = useCallback(() => {
     setTheme('light');
     saveTheme('light');
-  }
+  }, []);
 
-  function setDarkTheme() {
+  const setDarkTheme = useCallback(() => {
     setTheme('dark');
     saveTheme('dark');
-  }
+  }, []);
 
   const themeData = useMemo(
     () => ({
@@ -47,7 +53,7 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
       setLightTheme,
       setDarkTheme,
     }),
-    [theme]
+    [theme, setLightTheme, setDarkTheme]
   );
 
   return (
