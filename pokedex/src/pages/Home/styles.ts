@@ -1,19 +1,19 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  width: 920px;
-`;
-
 export const ListContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-top: 87px;
 `;
 
 export const SearchContainer = styled.div`
+  position: fixed;
+  top: 0px;
+  background: #fff;
   display: flex;
   flex: 1;
-  width: 100%;
+  width: 920px;
   flex-direction: row;
   align-items: center;
   justify-content: center;

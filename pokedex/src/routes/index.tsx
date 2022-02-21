@@ -1,14 +1,14 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Home from '../pages/Home';
-import Detail from '../pages/Detail';
+import Details from '../pages/Details';
 
 export default function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/detail" element={<Detail />} />
+        <Route path="/details/:id" element={<Details />} />
       </Routes>
     </BrowserRouter>
   );

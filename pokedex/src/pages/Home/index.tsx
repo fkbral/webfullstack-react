@@ -4,7 +4,6 @@ import Pokemon from '../../components/Pokemon';
 import { loadPokemons } from '../../services/pokemonApi';
 import { PokemonData } from '../../types/pokemon';
 import {
-  Container,
   ListContainer,
   ListFooter,
   LoadMoreButton,
@@ -76,41 +75,39 @@ export default function Home() {
 
   return (
     <Layout>
-      <Container>
-        <SearchContainer>
-          <input
-            ref={searchInputRef}
-            type="text"
-            onChange={handleSearchChange}
-            placeholder="Digite o nome de um Pokemon..."
-          />
-          <button type="button" onClick={handleSearchClick}>
-            Pesquisar
+      <SearchContainer>
+        <input
+          ref={searchInputRef}
+          type="text"
+          onChange={handleSearchChange}
+          placeholder="Digite o nome de um Pokemon..."
+        />
+        <button type="button" onClick={handleSearchClick}>
+          Pesquisar
+        </button>
+        {isSearching && (
+          <button type="button" onClick={handleClearSearch}>
+            Limpar
           </button>
-          {isSearching && (
-            <button type="button" onClick={handleClearSearch}>
-              Limpar
-            </button>
-          )}
-        </SearchContainer>
-        <ListContainer>
-          {pokemonsList.map((pokemon) => (
-            <Pokemon key={pokemon.url} pokemon={pokemon} />
-          ))}
+        )}
+      </SearchContainer>
+      <ListContainer>
+        {pokemonsList.map((pokemon) => (
+          <Pokemon key={pokemon.url} pokemon={pokemon} />
+        ))}
 
-          {loading ? (
-            <strong>Carregando...</strong>
-          ) : (
-            !isSearching && (
-              <ListFooter>
-                <LoadMoreButton onClick={handleLoadModePokemons}>
-                  Carregar mais
-                </LoadMoreButton>
-              </ListFooter>
-            )
-          )}
-        </ListContainer>
-      </Container>
+        {loading ? (
+          <strong>Carregando...</strong>
+        ) : (
+          !isSearching && (
+            <ListFooter>
+              <LoadMoreButton onClick={handleLoadModePokemons}>
+                Carregar mais
+              </LoadMoreButton>
+            </ListFooter>
+          )
+        )}
+      </ListContainer>
     </Layout>
   );
 }
